@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Infak & Sedekah</title>
+    <title>Portal Infak & Sedekah Lengkap</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js -->
@@ -109,20 +109,50 @@
         </div>
     </main>
 
-    <!-- MODAL PEMBAYARAN LANGSUNG PAKAI -->
+    <!-- MODAL PEMBAYARAN (LENGKAP: QRIS, VIRTUAL ACCOUNT, & TRANSFER) -->
     <div id="modalBayar" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-[2.5rem] p-6 max-w-sm w-full shadow-2xl space-y-4 fade-in">
+        <div class="bg-white rounded-[2.5rem] p-6 max-w-md w-full shadow-2xl space-y-4 fade-in max-h-[90vh] overflow-y-auto">
             <div class="text-center">
                 <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full" id="labelNominalModal">Rp 0</span>
-                <h3 class="text-lg font-extrabold text-slate-800 mt-2">Metode Pembayaran</h3>
-                <p class="text-xs text-slate-500">Silakan transfer melalui rekening resmi di bawah</p>
+                <h3 class="text-lg font-extrabold text-slate-800 mt-2">Pilih Metode Pembayaran</h3>
+                <p class="text-xs text-slate-500">Silakan pilih salah satu metode di bawah ini</p>
             </div>
 
-            <!-- REKENING UTAMA -->
-            <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl text-xs space-y-2">
-                <span class="font-bold text-slate-700 block"><i class="fa-solid fa-building-columns text-emerald-600 mr-1"></i> Transfer Bank Langsung:</span>
-                <div class="flex justify-between text-slate-600 border-b pb-1"><span>Bank BSI:</span> <strong class="text-slate-800">7123-4567-89</strong></div>
-                <div class="flex justify-between text-slate-600 border-b pb-1"><span>Bank BCA:</span> <strong class="text-slate-800">1234-5678-90</strong></div>
+            <!-- 1. QRIS SECTION -->
+            <div class="border-2 border-emerald-500 bg-emerald-50/50 p-4 rounded-2xl text-center space-y-2">
+                <span class="text-xs font-bold text-emerald-800 block"><i class="fa-solid fa-qrcode mr-1"></i> QRIS (Scan dengan semua E-Wallet & Bank)</span>
+                <div class="w-36 h-36 mx-auto bg-white border border-slate-200 rounded-xl flex items-center justify-center text-xs text-slate-400 p-2">
+                    <!-- Ganti teks div ini dengan tag <img src="link-qris-anda.jpg"> jika sudah punya gambar QRIS asli -->
+                    <div class="text-center">
+                        <i class="fa-solid fa-qrcode text-3xl text-emerald-600 mb-1"></i>
+                        <span class="block text-[10px] text-slate-500">[ Gambar QRIS Resmi ]</span>
+                    </div>
+                </div>
+                <p class="text-[10px] text-slate-500">BCA, Mandiri, BSI, GoPay, OVO, DANA, ShopeePay, dll.</p>
+            </div>
+
+            <!-- 2. VIRTUAL ACCOUNT SECTION -->
+            <div class="border border-slate-200 bg-slate-50 p-3 rounded-2xl text-xs space-y-2">
+                <span class="font-bold text-slate-700 block"><i class="fa-solid fa-credit-card text-emerald-600 mr-1"></i> Virtual Account (VA):</span>
+                <div class="flex justify-between items-center text-slate-600 border-b pb-1">
+                    <span>BSI Virtual Account:</span> 
+                    <strong class="text-slate-800 font-mono">8830 0812XXXXXXXX</strong>
+                </div>
+                <div class="flex justify-between items-center text-slate-600 border-b pb-1">
+                    <span>BCA Virtual Account:</span> 
+                    <strong class="text-slate-800 font-mono">12345 0812XXXXXXXX</strong>
+                </div>
+                <div class="flex justify-between items-center text-slate-600">
+                    <span>Mandiri VA:</span> 
+                    <strong class="text-slate-800 font-mono">8900 0812XXXXXXXX</strong>
+                </div>
+            </div>
+
+            <!-- 3. TRANSFER MANUAL & E-WALLET -->
+            <div class="border border-slate-200 bg-slate-50 p-3 rounded-2xl text-xs space-y-1.5">
+                <span class="font-bold text-slate-700 block"><i class="fa-solid fa-building-columns text-emerald-600 mr-1"></i> Transfer Bank / E-Wallet Manual:</span>
+                <div class="flex justify-between text-slate-600"><span>Bank BSI:</span> <strong class="text-slate-800">7123-4567-89</strong></div>
+                <div class="flex justify-between text-slate-600"><span>Bank BCA:</span> <strong class="text-slate-800">1234-5678-90</strong></div>
                 <div class="flex justify-between text-slate-600"><span>GoPay / DANA:</span> <strong class="text-slate-800">0812-3456-7890</strong></div>
             </div>
 
@@ -131,7 +161,7 @@
                     <i class="fa-brands fa-whatsapp mr-1"></i> Konfirmasi Bukti via WhatsApp
                 </a>
                 <button onclick="tutupModalBayar()" class="block w-full bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold py-2.5 rounded-2xl transition text-xs">
-                    Selesai / Tutup
+                    Selesai / Tutup Halaman
                 </button>
             </div>
         </div>
@@ -335,7 +365,7 @@
                         <td class="p-3">${badge}</td>
                         <td class="p-3 text-center space-x-1">
                             ${item.status === 'Pending' ? `<button onclick="ubahStatus(${actualIndex}, 'Berhasil')" class="bg-emerald-600 text-white px-2.5 py-1 rounded-xl text-[10px] font-bold">Validasi</button>` : ''}
-                            <button onclick="hapusTransaksi(${actualIndex})" class="bg-red-500 text-white px-2.5 py-1 rounded-1xl text-[10px] font-bold rounded-xl">Hapus</button>
+                            <button onclick="hapusTransaksi(${actualIndex})" class="bg-red-500 text-white px-2.5 py-1 rounded-xl text-[10px] font-bold">Hapus</button>
                         </td>
                     </tr>
                 `;
