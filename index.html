@@ -3,184 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Infak & Sedekah</title>
+    <title>Portal Infak & Sedekah Berkah</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js untuk Grafik -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- FontAwesome Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Custom Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        /* Smooth Fade In */
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+<body class="bg-gradient-to-br from-slate-50 via-emerald-50/30 to-slate-100 text-slate-800 min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
 
-    <!-- HEADER -->
-    <header class="bg-emerald-700 text-white pt-8 pb-16 px-4 rounded-b-[2.5rem] shadow-lg relative">
-        <div class="max-w-xl mx-auto flex justify-between items-center mb-4">
-            <div>
-                <span class="bg-emerald-600 text-emerald-100 text-xs px-3 py-1 rounded-full font-medium">Portal Resmi</span>
-                <h1 class="text-2xl font-bold mt-1"><i class="fa-solid fa-hand-holding-heart mr-2"></i>Infak & Sedekah</h1>
+    <!-- HEADER / HERO SECTION -->
+    <header class="bg-gradient-to-r from-emerald-800 via-emerald-700 to-teal-800 text-white pt-10 pb-20 px-4 rounded-b-[3rem] shadow-2xl relative overflow-hidden">
+        <!-- Background Ornamen Abstrak Bergerak Halus -->
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-emerald-600/30 rounded-full blur-3xl animate-pulse-soft"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-teal-500/20 rounded-full blur-3xl animate-pulse-soft"></div>
+
+        <div class="max-w-xl mx-auto flex justify-between items-center mb-6 relative z-10">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-inner animate-float">
+                    <i class="fa-solid fa-mosque text-emerald-300 text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-[10px] uppercase tracking-widest bg-emerald-600/60 text-emerald-200 px-2.5 py-0.5 rounded-full font-bold">Portal Amanah</span>
+                    <h1 class="text-xl font-extrabold tracking-tight mt-0.5">Infak & Sedekah</h1>
+                </div>
             </div>
-            <button onclick="openAdminLogin()" class="bg-emerald-800/80 hover:bg-emerald-900 text-xs px-3 py-2 rounded-xl border border-emerald-600 transition">
-                <i class="fa-solid fa-lock mr-1"></i> Admin
+            <button onclick="openAdminLogin()" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-xs px-3.5 py-2 rounded-xl border border-white/20 transition duration-300 shadow-sm flex items-center gap-1.5 font-medium group">
+                <i class="fa-solid fa-lock text-emerald-300 group-hover:scale-110 transition"></i> Admin
             </button>
         </div>
-        <div class="max-w-xl mx-auto grid grid-cols-2 gap-4">
-            <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-                <p class="text-xs text-emerald-100">Total Terkumpul</p>
-                <h2 id="totalDanaPublik" class="text-xl font-bold mt-1">Rp 0</h2>
+
+        <!-- STATS CARD -->
+        <div class="max-w-xl mx-auto grid grid-cols-2 gap-4 relative z-10">
+            <div class="bg-white/10 backdrop-blur-xl p-4.5 rounded-3xl border border-white/20 shadow-lg transform hover:-translate-y-1 transition duration-300">
+                <div class="flex items-center space-x-2 mb-1">
+                    <div class="w-7 h-7 rounded-full bg-emerald-500/30 flex items-center justify-center text-emerald-200 text-xs">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <p class="text-xs text-emerald-100 font-medium">Total Terkumpul</p>
+                </div>
+                <h2 id="totalDanaPublik" class="text-xl md:text-2xl font-extrabold tracking-tight mt-1 text-white">Rp 0</h2>
             </div>
-            <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-                <p class="text-xs text-emerald-100">Donatur Terverifikasi</p>
-                <h2 id="totalDonaturPublik" class="text-xl font-bold mt-1">0 Orang</h2>
+            
+            <div class="bg-white/10 backdrop-blur-xl p-4.5 rounded-3xl border border-white/20 shadow-lg transform hover:-translate-y-1 transition duration-300">
+                <div class="flex items-center space-x-2 mb-1">
+                    <div class="w-7 h-7 rounded-full bg-teal-500/30 flex items-center justify-center text-teal-200 text-xs">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <p class="text-xs text-emerald-100 font-medium">Donatur Dermawan</p>
+                </div>
+                <h2 id="totalDonaturPublik" class="text-xl md:text-2xl font-extrabold tracking-tight mt-1 text-white">0 Orang</h2>
             </div>
         </div>
     </header>
 
     <!-- KONTEN UTAMA -->
-    <main class="max-w-xl mx-auto px-4 -mt-10 flex-grow w-full space-y-6 pb-12">
+    <main class="max-w-xl mx-auto px-4 -mt-12 flex-grow w-full space-y-6 pb-12 relative z-20">
         
         <!-- FORMULIR INFAK -->
-        <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-100">
-            <h3 class="font-bold text-slate-800 text-lg mb-4">Formulir Salurkan Kebaikan</h3>
-            
-            <form id="infakForm" onsubmit="prosesInfak(event)" class="space-y-4">
+        <div class="bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-white">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-hand-holding-heart text-lg"></i>
+                </div>
                 <div>
-                    <label class="block text-xs font-semibold text-slate-500 mb-2">Pilih Nominal</label>
-                    <div class="grid grid-cols-2 gap-2 mb-2">
-                        <button type="button" onclick="pilihNominal(100000, this)" class="btn-nom border-2 border-slate-200 rounded-xl py-2.5 font-semibold text-sm text-slate-700 hover:border-emerald-600 transition">Rp 100.000</button>
-                        <button type="button" onclick="pilihNominal(500000, this)" class="btn-nom border-2 border-slate-200 rounded-xl py-2.5 font-semibold text-sm text-slate-700 hover:border-emerald-600 transition">Rp 500.000</button>
-                        <button type="button" onclick="pilihNominal(1000000, this)" class="btn-nom border-2 border-slate-200 rounded-xl py-2.5 font-semibold text-sm text-slate-700 hover:border-emerald-600 transition">Rp 1.000.000</button>
-                        <button type="button" onclick="pilihCustom(this)" class="btn-nom border-2 border-dashed border-slate-300 rounded-xl py-2.5 font-semibold text-sm text-emerald-700 hover:bg-emerald-50 transition">Nominal Lain</button>
+                    <h3 class="font-extrabold text-slate-800 text-lg">Salurkan Kebaikan Terbaik</h3>
+                    <p class="text-xs text-slate-500">Pilih nominal atau masukkan sesuai keikhlasan Anda</p>
+                </div>
+            </div>
+            
+            <form id="infakForm" onsubmit="prosesInfak(event)" class="space-y-5">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5">Pilihan Nominal Infak</label>
+                    <div class="grid grid-cols-2 gap-3 mb-3">
+                        <button type="button" onclick="pilihNominal(100000, this)" class="btn-nom border-2 border-slate-200/80 bg-white rounded-2xl py-3.5 font-bold text-sm text-slate-700 hover:border-emerald-600 hover:text-emerald-700 hover:shadow-md transition duration-300">Rp 100.000</button>
+                        <button type="button" onclick="pilihNominal(500000, this)" class="btn-nom border-2 border-slate-200/80 bg-white rounded-2xl py-3.5 font-bold text-sm text-slate-700 hover:border-emerald-600 hover:text-emerald-700 hover:shadow-md transition duration-300">Rp 500.000</button>
+                        <button type="button" onclick="pilihNominal(1000000, this)" class="btn-nom border-2 border-slate-200/80 bg-white rounded-2xl py-3.5 font-bold text-sm text-slate-700 hover:border-emerald-600 hover:text-emerald-700 hover:shadow-md transition duration-300">Rp 1.000.000</button>
+                        <button type="button" onclick="pilihCustom(this)" class="btn-nom border-2 border-dashed border-emerald-300 bg-emerald-50/30 rounded-2xl py-3.5 font-bold text-sm text-emerald-700 hover:bg-emerald-100/50 hover:shadow-md transition duration-300">Nominal Lain</button>
                     </div>
                     
-                    <div id="boxCustom" class="hidden mt-2">
-                        <input type="number" id="inputCustom" placeholder="Masukkan jumlah (contoh: 50000)" class="w-full px-4 py-3 border rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                    <div id="boxCustom" class="hidden mt-3 fade-in">
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-4 flex items-center font-bold text-slate-400 text-sm">Rp</span>
+                            <input type="number" id="inputCustom" placeholder="Contoh: 75000" class="w-full pl-11 pr-4 py-3.5 border border-slate-200 rounded-2xl text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none bg-slate-50/50 transition">
+                        </div>
                     </div>
                 </div>
 
-                <div class="space-y-3">
+                <div class="space-y-3.5 pt-2 border-t border-slate-100">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-500 mb-1">Nama Lengkap / Hamba Allah</label>
-                        <input type="text" id="namaDonatur" required placeholder="Nama Anda" class="w-full px-4 py-2.5 border rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Nama Lengkap / Hamba Allah</label>
+                        <input type="text" id="namaDonatur" required placeholder="Masukkan nama Anda" class="w-full px-4 py-3 border border-slate-200 rounded-2xl text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none bg-slate-50/50 transition">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-500 mb-1">No. WhatsApp / Kontak</label>
-                        <input type="text" id="kontakDonatur" required placeholder="08xxxxxxxxxx" class="w-full px-4 py-2.5 border rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">No. WhatsApp / Kontak</label>
+                        <input type="text" id="kontakDonatur" required placeholder="Contoh: 08123456789" class="w-full px-4 py-3 border border-slate-200 rounded-2xl text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none bg-slate-50/50 transition">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-500 mb-1">Doa / Catatan (Opsional)</label>
-                        <textarea id="catatanDonatur" rows="2" placeholder="Tulis doa atau harapan..." class="w-full px-4 py-2.5 border rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 outline-none"></textarea>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Doa / Catatan Kebaikan (Opsional)</label>
+                        <textarea id="catatanDonatur" rows="2" placeholder="Tuliskan doa atau harapan baik Anda..." class="w-full px-4 py-3 border border-slate-200 rounded-2xl text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none bg-slate-50/50 transition resize-none"></textarea>
                     </div>
                 </div>
 
-                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/30 transition">
-                    Lanjut ke Pembayaran <i class="fa-solid fa-arrow-right ml-1"></i>
+                <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-extrabold py-4 rounded-2xl shadow-xl shadow-emerald-600/30 transform hover:-translate-y-0.5 active:translate-y-0 transition duration-300 flex items-center justify-center space-x-2">
+                    <span>Lanjut ke Pembayaran</span>
+                    <i class="fa-solid fa-arrow-right-long text-xs animate-pulse"></i>
                 </button>
             </form>
         </div>
 
         <!-- GRAFIK PENERIMAAN PUBLIK -->
-        <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-100">
-            <h3 class="font-bold text-slate-800 text-base mb-3"><i class="fa-solid fa-chart-line text-emerald-600 mr-2"></i>Grafik Tren Infak Harian</h3>
-            <canvas id="grafikPublik" height="120"></canvas>
+        <div class="bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-white">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-extrabold text-slate-800 text-base">Grafik Tren Infak Harian</h3>
+                </div>
+                <span class="text-[10px] font-bold bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full">Realtime</span>
+            </div>
+            <div class="relative h-44 w-full">
+                <canvas id="grafikPublik"></canvas>
+            </div>
         </div>
 
         <!-- DAFTAR DONATUR TERVERIFIKASI -->
-        <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-100">
-            <h3 class="font-bold text-slate-800 text-base mb-3"><i class="fa-solid fa-list-check text-emerald-600 mr-2"></i>Daftar Donatur</h3>
-            <div id="listDonaturPublik" class="space-y-3 divide-y divide-slate-100">
+        <div class="bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-white">
+            <div class="flex items-center space-x-2.5 mb-4">
+                <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+                <h3 class="font-extrabold text-slate-800 text-base">Daftar Donatur Dermawan</h3>
+            </div>
+            <div id="listDonaturPublik" class="space-y-3 divide-y divide-slate-100/80">
                 <!-- Data tampil otomatis dari LocalStorage -->
             </div>
         </div>
     </main>
 
     <!-- MODAL PEMBAYARAN -->
-    <div id="modalBayar" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+    <div id="modalBayar" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300">
+        <div class="bg-white rounded-[2.5rem] p-6 md:p-8 max-w-sm w-full shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto fade-in border border-slate-100">
             <div class="text-center">
-                <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full" id="labelNominalModal">Rp 0</span>
-                <h3 class="text-lg font-bold text-slate-800 mt-2">Metode Pembayaran</h3>
-                <p class="text-xs text-slate-500">Pilih salah satu metode pembayaran di bawah</p>
+                <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-extrabold px-4 py-1.5 rounded-full shadow-sm" id="labelNominalModal">Rp 0</span>
+                <h3 class="text-xl font-extrabold text-slate-800 mt-3">Instruksi Pembayaran</h3>
+                <p class="text-xs text-slate-500 mt-1">Pilih metode di bawah untuk menuntaskan infak Anda</p>
             </div>
 
             <!-- QRIS SECTION -->
-            <div class="border-2 border-emerald-500 bg-emerald-50/50 p-4 rounded-2xl text-center space-y-2">
-                <span class="text-xs font-bold text-emerald-800 block"><i class="fa-solid fa-qrcode mr-1"></i> QRIS (Semua E-Wallet & Bank)</span>
-                <div class="w-36 h-36 mx-auto bg-white border border-slate-200 rounded-xl flex items-center justify-center text-xs text-slate-400">
-                    [ Gambar QRIS ]
+            <div class="border-2 border-emerald-500 bg-gradient-to-b from-emerald-50/80 to-white p-4 rounded-3xl text-center space-y-2.5 shadow-sm">
+                <div class="flex items-center justify-center space-x-1 text-xs font-bold text-emerald-800">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span>QRIS (All Payment E-Wallet & Bank)</span>
                 </div>
-                <p class="text-[10px] text-slate-500">Scan pakai BCA, Mandiri, BSI, GoPay, OVO, DANA, dll.</p>
+                <div class="w-40 h-40 mx-auto bg-white border-2 border-dashed border-emerald-200 rounded-2xl flex flex-col items-center justify-center text-xs text-slate-400 p-2 shadow-inner">
+                    <i class="fa-solid fa-qrcode text-4xl text-emerald-600 mb-1"></i>
+                    <span class="font-semibold text-[10px] text-slate-600">[ Scan QRIS Yayasan ]</span>
+                </div>
+                <p class="text-[11px] text-slate-500 leading-relaxed">Buka aplikasi m-banking atau e-wallet (BCA, Mandiri, BSI, GoPay, OVO, DANA, dll) lalu scan QR di atas.</p>
             </div>
 
             <!-- TRANSFER MANUAL SECTION -->
-            <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl text-xs space-y-1">
-                <span class="font-bold text-slate-700 block mb-1">Transfer Bank Manual:</span>
-                <div class="flex justify-between text-slate-600"><span>Bank BSI:</span> <strong>7123-4567-89</strong></div>
-                <div class="flex justify-between text-slate-600"><span>Bank BCA:</span> <strong>1234-5678-90</strong></div>
+            <div class="bg-slate-50 border border-slate-200/80 p-4 rounded-2xl text-xs space-y-2">
+                <span class="font-bold text-slate-700 block mb-1 flex items-center gap-1.5">
+                    <i class="fa-solid fa-building-columns text-emerald-600"></i> Transfer Rekening Manual:
+                </span>
+                <div class="flex justify-between text-slate-600 border-b border-slate-200/60 pb-1"><span>Bank BSI:</span> <strong class="text-slate-800">7123-4567-89</strong></div>
+                <div class="flex justify-between text-slate-600"><span>Bank BCA:</span> <strong class="text-slate-800">1234-5678-90</strong></div>
             </div>
 
-            <div class="space-y-2 pt-2">
-                <a id="btnWaKonfirm" href="#" target="_blank" class="block w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl transition text-sm shadow-md">
-                    <i class="fa-brands fa-whatsapp mr-1"></i> Konfirmasi via WhatsApp
+            <div class="space-y-2.5 pt-1">
+                <a id="btnWaKonfirm" href="#" target="_blank" class="block w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3.5 rounded-2xl transition shadow-lg shadow-emerald-600/30 text-sm flex items-center justify-center space-x-2">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>Konfirmasi via WhatsApp</span>
                 </a>
-                <button onclick="tutupModalBayar()" class="block w-full bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold py-2.5 rounded-xl transition text-xs">
-                    Selesai / Tutup
+                <button onclick="tutupModalBayar()" class="block w-full bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold py-3 rounded-2xl transition text-xs">
+                    Selesai / Tutup Halaman
                 </button>
             </div>
         </div>
     </div>
 
     <!-- MODAL LOGIN ADMIN -->
-    <div id="modalAdminLogin" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-6 max-w-xs w-full shadow-2xl space-y-4">
-            <h3 class="text-lg font-bold text-slate-800 text-center">Login Admin</h3>
-            <input type="password" id="passwordAdmin" placeholder="Password (admin123)" class="w-full px-4 py-3 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-emerald-500">
-            <div class="flex space-x-2">
-                <button onclick="cekLoginAdmin()" class="flex-1 bg-emerald-600 text-white font-semibold py-2.5 rounded-xl text-sm">Masuk</button>
-                <button onclick="tutupAdminLogin()" class="flex-1 bg-slate-100 text-slate-600 font-semibold py-2.5 rounded-xl text-sm">Batal</button>
+    <div id="modalAdminLogin" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-[2.5rem] p-6 md:p-8 max-w-xs w-full shadow-2xl space-y-4 fade-in">
+            <div class="text-center">
+                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-2 text-lg">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="text-lg font-extrabold text-slate-800">Login Administrator</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Masukkan sandi khusus pengelola</p>
+            </div>
+            <input type="password" id="passwordAdmin" placeholder="Password (admin123)" class="w-full px-4 py-3.5 border border-slate-200 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50/50">
+            <div class="flex space-x-2 pt-1">
+                <button onclick="cekLoginAdmin()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-2xl text-sm shadow-md transition">Masuk</button>
+                <button onclick="tutupAdminLogin()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold py-3 rounded-2xl text-sm transition">Batal</button>
             </div>
         </div>
     </div>
 
-    <!-- HALAMAN DASBOR ADMIN (Tampil saat login berhasil) -->
-    <div id="panelAdmin" class="fixed inset-0 bg-slate-100 z-50 hidden overflow-y-auto p-4 md:p-8">
-        <div class="max-w-3xl mx-auto bg-white rounded-3xl p-6 shadow-2xl space-y-6">
-            <div class="flex justify-between items-center border-b pb-4">
-                <div>
-                    <span class="bg-amber-100 text-amber-700 text-xs px-3 py-1 rounded-full font-bold">Dasbor Admin</span>
-                    <h2 class="text-xl font-bold text-slate-800 mt-1">Manajemen Infak</h2>
+    <!-- HALAMAN DASBOR ADMIN -->
+    <div id="panelAdmin" class="fixed inset-0 bg-slate-900/40 backdrop-blur-md z-50 hidden overflow-y-auto p-4 md:p-8">
+        <div class="max-w-3xl mx-auto bg-white rounded-[2.5rem] p-6 md:p-8 shadow-2xl space-y-6 fade-in border border-slate-100">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-extrabold bg-amber-100 text-amber-700 px-2.5 py-0.5 rounded-full uppercase tracking-wider">Dashboard Panel</span>
+                        <h2 class="text-xl font-extrabold text-slate-800 mt-0.5">Manajemen Infak & Sedekah</h2>
+                    </div>
                 </div>
-                <button onclick="tutupAdminPanel()" class="bg-slate-200 hover:bg-slate-300 px-4 py-2 rounded-xl text-xs font-semibold text-slate-700">Tutup Dasbor</button>
+                <button onclick="tutupAdminPanel()" class="bg-slate-100 hover:bg-slate-200 px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-700 transition">Tutup Dasbor</button>
             </div>
 
             <!-- Statistik Admin -->
             <div class="grid grid-cols-2 gap-4">
-                <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl">
-                    <p class="text-xs text-emerald-700">Total Masuk (Verifikasi)</p>
-                    <h3 id="adminTotalDana" class="text-lg font-bold text-emerald-800 mt-1">Rp 0</h3>
+                <div class="bg-emerald-50/80 border border-emerald-200/80 p-5 rounded-3xl shadow-sm">
+                    <p class="text-xs font-bold text-emerald-700 mb-1">Dana Masuk (Terverifikasi)</p>
+                    <h3 id="adminTotalDana" class="text-xl md:text-2xl font-extrabold text-emerald-800">Rp 0</h3>
                 </div>
-                <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl">
-                    <p class="text-xs text-amber-700">Menunggu Konfirmasi</p>
-                    <h3 id="adminPending" class="text-lg font-bold text-amber-800 mt-1">0 Transaksi</h3>
+                <div class="bg-amber-50/80 border border-amber-200/80 p-5 rounded-3xl shadow-sm">
+                    <p class="text-xs font-bold text-amber-700 mb-1">Menunggu Validasi</p>
+                    <h3 id="adminPending" class="text-xl md:text-2xl font-extrabold text-amber-800">0 Transaksi</h3>
                 </div>
             </div>
 
             <!-- Tabel Data Transaksi -->
-            <div>
-                <h3 class="font-bold text-slate-800 text-sm mb-2">Daftar Semua Transaksi Masuk</h3>
-                <div class="overflow-x-auto border rounded-xl">
+            <div class="space-y-3">
+                <h3 class="font-extrabold text-slate-800 text-sm">Daftar Semua Transaksi Masuk</h3>
+                <div class="overflow-x-auto border border-slate-200/80 rounded-2xl shadow-sm">
                     <table class="w-full text-left text-xs">
-                        <thead class="bg-slate-50 border-b text-slate-500">
+                        <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider">
                             <tr>
-                                <th class="p-3">Tanggal & Nama</th>
-                                <th class="p-3">Nominal</th>
-                                <th class="p-3">Status</th>
-                                <th class="p-3 text-center">Aksi</th>
+                                <th class="p-3.5">Tanggal & Identitas</th>
+                                <th class="p-3.5">Nominal</th>
+                                <th class="p-3.5">Status</th>
+                                <th class="p-3.5 text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody id="tabelAdminBody" class="divide-y divide-slate-100">
@@ -190,13 +281,18 @@
                 </div>
             </div>
             
-            <button onclick="resetSemuaData()" class="text-red-500 text-xs hover:underline"><i class="fa-solid fa-trash mr-1"></i> Reset Seluruh Data Penyimpanan</button>
+            <div class="pt-2 border-t border-slate-100 flex justify-between items-center">
+                <button onclick="resetSemuaData()" class="text-red-500 text-xs font-bold hover:underline flex items-center gap-1">
+                    <i class="fa-solid fa-trash"></i> Reset Seluruh Data Penyimpanan
+                </button>
+                <span class="text-[11px] text-slate-400">Sistem Portal v2.0</span>
+            </div>
         </div>
     </div>
 
     <!-- FOOTER -->
-    <footer class="text-center py-6 text-xs text-slate-400">
-        &copy; 2026 Portal Infak & Kebaikan. Amanah & Transparan.
+    <footer class="text-center py-8 text-xs text-slate-400 tracking-wide">
+        &copy; 2026 Portal Infak & Kebaikan. Amanah, Transparan, & Profesional.
     </footer>
 
     <!-- JAVASCRIPT LOGIC -->
@@ -207,8 +303,8 @@
         // Inisialisasi Data Default jika kosong
         if (!localStorage.getItem('infakData')) {
             const dataAwal = [
-                { id: '1', tanggal: '2026-06-01', nama: 'Hamba Allah', nominal: 100000, kontak: '081', catatan: 'Semoga berkah', status: 'Berhasil' },
-                { id: '2', tanggal: '2026-06-02', nama: 'Bpk. Ahmad', nominal: 500000, kontak: '081', catatan: 'Lancar selalu', status: 'Berhasil' }
+                { id: '1', tanggal: '2026-06-01', nama: 'Hamba Allah', nominal: 100000, kontak: '081', catatan: 'Semoga berkah dan lancar', status: 'Berhasil' },
+                { id: '2', tanggal: '2026-06-02', nama: 'Bpk. Ahmad Fauzi', nominal: 500000, kontak: '081', catatan: 'Jariyah orang tua', status: 'Berhasil' }
             ];
             localStorage.setItem('infakData', JSON.stringify(dataAwal));
         }
@@ -219,17 +315,17 @@
 
         function resetTombolNominal() {
             document.querySelectorAll('.btn-nom').forEach(btn => {
-                btn.classList.remove('border-emerald-600', 'bg-emerald-600', 'text-white');
+                btn.classList.remove('border-emerald-600', 'bg-emerald-600', 'text-white', 'shadow-md');
                 if(!btn.classList.contains('border-dashed')) {
-                    btn.classList.add('border-slate-200', 'text-slate-700');
+                    btn.classList.add('border-slate-200', 'text-slate-700', 'bg-white');
                 }
             });
         }
 
         function pilihNominal(nilai, el) {
             resetTombolNominal();
-            el.classList.remove('border-slate-200', 'text-slate-700');
-            el.classList.add('border-emerald-600', 'bg-emerald-600', 'text-white');
+            el.classList.remove('border-slate-200', 'text-slate-700', 'bg-white');
+            el.classList.add('border-emerald-600', 'bg-emerald-600', 'text-white', 'shadow-md');
             nominalTerpilih = nilai;
             document.getElementById('boxCustom').classList.add('hidden');
             document.getElementById('inputCustom').value = '';
@@ -237,8 +333,8 @@
 
         function pilihCustom(el) {
             resetTombolNominal();
-            el.classList.remove('border-dashed', 'border-slate-300', 'text-emerald-700');
-            el.classList.add('border-emerald-600', 'bg-emerald-600', 'text-white');
+            el.classList.remove('border-dashed', 'border-emerald-300', 'text-emerald-700', 'bg-emerald-50/30');
+            el.classList.add('border-emerald-600', 'bg-emerald-600', 'text-white', 'shadow-md');
             document.getElementById('boxCustom').classList.remove('hidden');
             document.getElementById('inputCustom').focus();
             nominalTerpilih = 0;
@@ -261,7 +357,6 @@
             const catatan = document.getElementById('catatanDonatur').value;
             const tanggalHariIni = new Date().toISOString().split('T')[0];
 
-            // Simpan transaksi baru dengan status Pending
             let data = JSON.parse(localStorage.getItem('infakData')) || [];
             data.push({
                 id: 'INF-' + Date.now().toString().slice(-5),
@@ -274,9 +369,8 @@
             });
             localStorage.setItem('infakData', JSON.stringify(data));
 
-            // Tampilkan Modal Pembayaran & WhatsApp Link
             document.getElementById('labelNominalModal').innerText = 'Rp ' + finalNominal.toLocaleString('id-ID');
-            const pesanWa = `Halo Admin, saya sudah mengisi form infak:\nNama: ${nama}\nNominal: Rp ${finalNominal.toLocaleString('id-ID')}\nBerikut bukti transfernya.`;
+            const pesanWa = `Halo Admin, saya sudah mengisi form infak:\nNama: ${nama}\nNominal: Rp ${finalNominal.toLocaleString('id-ID')}\nBerikut konfirmasi bukti transfernya.`;
             document.getElementById('btnWaKonfirm').href = `https://wa.me/6281234567890?text=${encodeURIComponent(pesanWa)}`;
             
             document.getElementById('modalBayar').classList.remove('hidden');
@@ -294,36 +388,32 @@
             const data = JSON.parse(localStorage.getItem('infakData')) || [];
             const dataBerhasil = data.filter(d => d.status === 'Berhasil');
 
-            // Hitung Total Dana & Total Donatur Berhasil
             const totalDana = dataBerhasil.reduce((acc, curr) => acc + curr.nominal, 0);
             document.getElementById('totalDanaPublik').innerText = 'Rp ' + totalDana.toLocaleString('id-ID');
             document.getElementById('totalDonaturPublik').innerText = dataBerhasil.length + ' Orang';
 
-            // Render List Donatur Publik
             const listEl = document.getElementById('listDonaturPublik');
             listEl.innerHTML = '';
             if(dataBerhasil.length === 0) {
-                listEl.innerHTML = '<p class="text-xs text-slate-400 text-center py-2">Belum ada data infak terverifikasi.</p>';
+                listEl.innerHTML = '<p class="text-xs text-slate-400 text-center py-3">Belum ada data infak terverifikasi.</p>';
             } else {
                 dataBerhasil.slice().reverse().forEach(item => {
                     listEl.innerHTML += `
-                        <div class="py-2.5 flex justify-between items-center text-xs">
+                        <div class="py-3 flex justify-between items-center text-xs transition hover:bg-slate-50/50 px-2 rounded-xl">
                             <div>
-                                <strong class="text-slate-800 block text-sm">${item.nama}</strong>
-                                <span class="text-slate-400">${item.tanggal} • ${item.catatan || 'Infak Umum'}</span>
+                                <strong class="text-slate-800 block text-sm font-bold">${item.nama}</strong>
+                                <span class="text-slate-400 text-[11px]">${item.tanggal} &bull; <span class="italic text-slate-500">${item.catatan || 'Infak Umum'}</span></span>
                             </div>
-                            <span class="font-bold text-emerald-600 text-sm">Rp ${item.nominal.toLocaleString('id-ID')}</span>
+                            <span class="font-extrabold text-emerald-600 text-sm">Rp ${item.nominal.toLocaleString('id-ID')}</span>
                         </div>
                     `;
                 });
             }
 
-            // Render Grafik Chart.js Harian
             renderGrafik(dataBerhasil);
         }
 
         function renderGrafik(dataBerhasil) {
-            // Kelompokkan data per tanggal
             const grouped = {};
             dataBerhasil.forEach(d => {
                 grouped[d.tanggal] = (grouped[d.tanggal] || 0) + d.nominal;
@@ -338,25 +428,31 @@
             chartInstance = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: labels,
+                    labels: labels.length > 0 ? labels : ['-', 'Hari Ini'],
                     datasets: [{
                         label: 'Penerimaan (Rp)',
-                        data: values,
+                        data: values.length > 0 ? values : [0, 0],
                         borderColor: '#059669',
-                        backgroundColor: 'rgba(5, 150, 105, 0.1)',
+                        backgroundColor: 'rgba(5, 150, 105, 0.08)',
+                        borderWidth: 3,
                         fill: true,
-                        tension: 0.3
+                        tension: 0.4,
+                        pointBackgroundColor: '#059669',
+                        pointRadius: 4
                     }]
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     plugins: { legend: { display: false } },
-                    scales: { y: { beginAtZero: true } }
+                    scales: { 
+                        y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.03)' } },
+                        x: { grid: { display: false } }
+                    }
                 }
             });
         }
 
-        // Fungsi Admin
         function openAdminLogin() { document.getElementById('modalAdminLogin').classList.remove('hidden'); }
         function tutupAdminLogin() { document.getElementById('modalAdminLogin').classList.add('hidden'); document.getElementById('passwordAdmin').value = ''; }
         
@@ -389,23 +485,28 @@
             const tbody = document.getElementById('tabelAdminBody');
             tbody.innerHTML = '';
             
+            if(data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-slate-400">Belum ada riwayat transaksi.</td></tr>`;
+                return;
+            }
+
             data.slice().reverse().forEach((item, index) => {
                 const actualIndex = data.length - 1 - index;
                 const statusBadge = item.status === 'Berhasil' 
-                    ? '<span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-semibold">Berhasil</span>' 
-                    : '<span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-semibold">Pending</span>';
+                    ? '<span class="bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full font-bold text-[10px]">Berhasil</span>' 
+                    : '<span class="bg-amber-100 text-amber-700 px-2.5 py-1 rounded-full font-bold text-[10px]">Pending</span>';
 
                 tbody.innerHTML += `
-                    <tr class="border-b">
-                        <td class="p-3">
-                            <strong>${item.nama}</strong><br>
-                            <span class="text-slate-400">${item.tanggal} • ${item.kontak}</span>
+                    <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition">
+                        <td class="p-3.5">
+                            <strong class="text-slate-800 text-sm">${item.nama}</strong><br>
+                            <span class="text-slate-400 text-[11px]">${item.tanggal} &bull; ${item.kontak}</span>
                         </td>
-                        <td class="p-3 font-semibold">Rp ${item.nominal.toLocaleString('id-ID')}</td>
-                        <td class="p-3">${statusBadge}</td>
-                        <td class="p-3 text-center space-x-1">
-                            ${item.status === 'Pending' ? `<button onclick="ubahStatus(${actualIndex}, 'Berhasil')" class="bg-emerald-600 text-white px-2 py-1 rounded text-[10px]">Validasi</button>` : ''}
-                            <button onclick="hapusTransaksi(${actualIndex})" class="bg-red-500 text-white px-2 py-1 rounded text-[10px]">Hapus</button>
+                        <td class="p-3.5 font-bold text-slate-700">Rp ${item.nominal.toLocaleString('id-ID')}</td>
+                        <td class="p-3.5">${statusBadge}</td>
+                        <td class="p-3.5 text-center space-x-1.5">
+                            ${item.status === 'Pending' ? `<button onclick="ubahStatus(${actualIndex}, 'Berhasil')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1.5 rounded-xl font-bold text-[11px] shadow-sm transition">Validasi</button>` : ''}
+                            <button onclick="hapusTransaksi(${actualIndex})" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-xl font-bold text-[11px] shadow-sm transition">Hapus</button>
                         </td>
                     </tr>
                 `;
