@@ -20,15 +20,13 @@
         .animate-pulse-glow { animation: pulse-glow 6s ease-in-out infinite; }
         .fade-in { animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.96) translateY(8px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-        /* Smooth transition untuk teks berganti hadis */
         .hadis-fade { transition: opacity 0.6s ease-in-out; }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-teal-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
 
     <!-- HEADER / HERO SECTION -->
-    <header class="bg-gradient-to-tr from-emerald-950 via-teal-900 to-slate-900 text-white pt-10 pb-24 px-4 rounded-b-[4rem] shadow-2xl relative overflow-hidden border-b border-emerald-500/20">
-        <!-- Efek Cahaya Gradasi Mewah -->
+    <header class="bg-gradient-to-tr from-emerald-950 via-teal-950 to-slate-900 text-white pt-10 pb-24 px-4 rounded-b-[4rem] shadow-2xl relative overflow-hidden border-b border-emerald-500/20">
         <div class="absolute -top-32 -right-32 w-96 h-96 bg-gradient-to-br from-emerald-500/20 to-teal-500/0 rounded-full blur-3xl animate-pulse-glow pointer-events-none"></div>
         <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-gradient-to-tr from-cyan-500/20 to-emerald-500/0 rounded-full blur-3xl animate-pulse-glow pointer-events-none" style="animation-delay: 3s;"></div>
 
@@ -47,10 +45,10 @@
             </button>
         </div>
 
-        <!-- MOTIVASI BESAR DARI HADIS (BERGANTI-GANTI OTOMATIS) -->
+        <!-- KARTU MOTIVASI HADIS -->
         <div class="max-w-xl mx-auto mb-8 px-4 text-center relative z-10">
-            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-3xl shadow-2xl relative overflow-hidden">
-                <div class="absolute top-2 left-3 text-emerald-500/20 text-4xl font-serif">“</div>
+            <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-700/80 p-6 rounded-3xl shadow-2xl relative overflow-hidden">
+                <div class="absolute top-2 left-4 text-emerald-500/20 text-4xl font-serif">“</div>
                 <div id="containerHadis" class="hadis-fade opacity-100 space-y-2">
                     <p id="teksHadis" class="text-sm md:text-base font-bold text-emerald-200 leading-relaxed italic">
                         "Tidaklah harta berkurang karena sedekah."
@@ -59,30 +57,30 @@
                         — (HR. Muslim)
                     </span>
                 </div>
-                <div class="absolute bottom-1 right-3 text-emerald-500/20 text-4xl font-serif">”</div>
+                <div class="absolute bottom-1 right-4 text-emerald-500/20 text-4xl font-serif">”</div>
             </div>
         </div>
 
-        <!-- STATISTIK KARTU -->
+        <!-- KARTU STATISTIK ATAS (RAPI & SIMETRIS) -->
         <div class="max-w-xl mx-auto grid grid-cols-2 gap-4 relative z-10">
-            <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl p-4.5 rounded-3xl border border-white/15 shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-                <div class="flex items-center space-x-2 mb-1.5">
-                    <div class="w-7 h-7 rounded-xl bg-emerald-500/30 flex items-center justify-center text-emerald-300 text-xs">
+            <div class="bg-slate-900/70 backdrop-blur-xl p-5 rounded-3xl border border-slate-700/80 shadow-xl transition-all duration-300 hover:border-emerald-500/50 flex flex-col justify-between">
+                <div class="flex items-center space-x-2.5 mb-2">
+                    <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs border border-emerald-500/30">
                         <i class="fa-solid fa-wallet"></i>
                     </div>
-                    <p class="text-xs text-slate-300 font-medium">Total Terkumpul</p>
+                    <p class="text-xs text-slate-300 font-semibold">Total Terkumpul</p>
                 </div>
-                <h2 id="totalDanaPublik" class="text-xl md:text-2xl font-extrabold tracking-tight text-white">Rp 0</h2>
+                <h2 id="totalDanaPublik" class="text-xl md:text-2xl font-extrabold tracking-tight text-white mt-1">Rp 0</h2>
             </div>
             
-            <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl p-4.5 rounded-3xl border border-white/15 shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-                <div class="flex items-center space-x-2 mb-1.5">
-                    <div class="w-7 h-7 rounded-xl bg-cyan-500/30 flex items-center justify-center text-cyan-300 text-xs">
+            <div class="bg-slate-900/70 backdrop-blur-xl p-5 rounded-3xl border border-slate-700/80 shadow-xl transition-all duration-300 hover:border-cyan-500/50 flex flex-col justify-between">
+                <div class="flex items-center space-x-2.5 mb-2">
+                    <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xs border border-cyan-500/30">
                         <i class="fa-solid fa-users"></i>
                     </div>
-                    <p class="text-xs text-slate-300 font-medium">Donatur Dermawan</p>
+                    <p class="text-xs text-slate-300 font-semibold">Donatur Dermawan</p>
                 </div>
-                <h2 id="totalDonaturPublik" class="text-xl md:text-2xl font-extrabold tracking-tight text-white">0 Orang</h2>
+                <h2 id="totalDonaturPublik" class="text-xl md:text-2xl font-extrabold tracking-tight text-white mt-1">0 Orang</h2>
             </div>
         </div>
     </header>
@@ -90,26 +88,43 @@
     <!-- KONTEN UTAMA -->
     <main class="max-w-xl mx-auto px-4 -mt-12 flex-grow w-full space-y-6 pb-12 relative z-20">
         
-        <!-- FORMULIR INFAK -->
-        <div class="bg-slate-900/90 backdrop-blur-2xl rounded-[2.5rem] p-6 md:p-8 shadow-2xl border border-slate-700/60 text-slate-100">
-            <div class="flex items-center space-x-3 mb-6">
-                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shadow-lg shadow-emerald-500/20">
+        <!-- KARTU FORMULIR INFAK -->
+        <div class="bg-slate-900/95 backdrop-blur-2xl rounded-[2.5rem] p-6 md:p-8 shadow-2xl border border-slate-700/80 text-slate-100">
+            <div class="flex items-center space-x-3.5 mb-6 pb-4 border-b border-slate-800">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shadow-lg shadow-emerald-500/20">
                     <i class="fa-solid fa-hand-holding-heart text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-extrabold text-white text-lg">Salurkan Kebaikan Terbaik</h3>
+                    <h3 class="font-extrabold text-white text-base md:text-lg">Salurkan Kebaikan Terbaik</h3>
                     <p class="text-xs text-slate-400">Pilih nominal atau masukkan sesuai keikhlasan hati</p>
                 </div>
             </div>
             
             <form id="infakForm" onsubmit="prosesInfak(event)" class="space-y-5">
                 <div>
-                    <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-2.5">Pilihan Nominal Infak</label>
-                    <div class="grid grid-cols-2 gap-3 mb-3">
-                        <button type="button" onclick="pilihNominal(100000, this)" class="btn-nom border-2 border-slate-700 bg-slate-800/60 rounded-2xl py-3.5 font-bold text-sm text-slate-200 hover:border-emerald-500 hover:bg-emerald-950/40 transition-all duration-300">Rp 100.000</button>
-                        <button type="button" onclick="pilihNominal(500000, this)" class="btn-nom border-2 border-slate-700 bg-slate-800/60 rounded-2xl py-3.5 font-bold text-sm text-slate-200 hover:border-emerald-500 hover:bg-emerald-950/40 transition-all duration-300">Rp 500.000</button>
-                        <button type="button" onclick="pilihNominal(1000000, this)" class="btn-nom border-2 border-slate-700 bg-slate-800/60 rounded-2xl py-3.5 font-bold text-sm text-slate-200 hover:border-emerald-500 hover:bg-emerald-950/40 transition-all duration-300">Rp 1.000.000</button>
-                        <button type="button" onclick="pilihCustom(this)" class="btn-nom border-2 border-dashed border-emerald-500/50 bg-emerald-950/20 rounded-2xl py-3.5 font-bold text-sm text-emerald-400 hover:bg-emerald-900/40 transition-all duration-300">Nominal Lain</button>
+                    <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-3">Pilihan Nominal Infak</label>
+                    
+                    <!-- KARTU NOMINAL GRID 4 KOTAK YANG SANGAT RAPI -->
+                    <div class="grid grid-cols-2 gap-3.5 mb-3">
+                        <button type="button" onclick="pilihNominal(100000, this)" class="btn-nom border-2 border-slate-700/80 bg-slate-800/80 rounded-2xl p-4 flex flex-col items-center justify-center text-center hover:border-emerald-500 hover:bg-emerald-950/30 transition-all duration-300 group shadow-sm">
+                            <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1 group-hover:text-emerald-400 transition">Pilihan 1</span>
+                            <span class="text-sm md:text-base font-extrabold text-slate-200">Rp 100.000</span>
+                        </button>
+                        
+                        <button type="button" onclick="pilihNominal(500000, this)" class="btn-nom border-2 border-slate-700/80 bg-slate-800/80 rounded-2xl p-4 flex flex-col items-center justify-center text-center hover:border-emerald-500 hover:bg-emerald-950/30 transition-all duration-300 group shadow-sm">
+                            <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1 group-hover:text-emerald-400 transition">Pilihan 2</span>
+                            <span class="text-sm md:text-base font-extrabold text-slate-200">Rp 500.000</span>
+                        </button>
+                        
+                        <button type="button" onclick="pilihNominal(1000000, this)" class="btn-nom border-2 border-slate-700/80 bg-slate-800/80 rounded-2xl p-4 flex flex-col items-center justify-center text-center hover:border-emerald-500 hover:bg-emerald-950/30 transition-all duration-300 group shadow-sm">
+                            <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1 group-hover:text-emerald-400 transition">Pilihan 3</span>
+                            <span class="text-sm md:text-base font-extrabold text-slate-200">Rp 1.000.000</span>
+                        </button>
+                        
+                        <button type="button" onclick="pilihCustom(this)" class="btn-nom border-2 border-dashed border-emerald-500/50 bg-emerald-950/20 rounded-2xl p-4 flex flex-col items-center justify-center text-center hover:bg-emerald-900/30 transition-all duration-300 group shadow-sm">
+                            <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider mb-1">Fleksibel</span>
+                            <span class="text-sm md:text-base font-extrabold text-emerald-300"><i class="fa-solid fa-pen-to-square mr-1 text-xs"></i> Nominal Lain</span>
+                        </button>
                     </div>
                     
                     <div id="boxCustom" class="hidden mt-3 fade-in">
@@ -120,7 +135,7 @@
                     </div>
                 </div>
 
-                <div class="space-y-3.5 pt-2 border-t border-slate-800">
+                <div class="space-y-4 pt-2 border-t border-slate-800">
                     <div>
                         <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">Nama / Hamba Allah</label>
                         <input type="text" id="namaDonatur" required placeholder="Nama Anda" class="w-full px-4 py-3.5 border border-slate-700 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-800 text-white transition-all">
@@ -142,9 +157,9 @@
             </form>
         </div>
 
-        <!-- GRAFIK -->
-        <div class="bg-slate-900/90 backdrop-blur-2xl rounded-[2.5rem] p-6 md:p-8 shadow-2xl border border-slate-700/60 text-slate-100">
-            <div class="flex items-center justify-between mb-4">
+        <!-- KARTU GRAFIK -->
+        <div class="bg-slate-900/95 backdrop-blur-2xl rounded-[2.5rem] p-6 md:p-8 shadow-2xl border border-slate-700/80 text-slate-100">
+            <div class="flex items-center justify-between mb-5 pb-3 border-b border-slate-800">
                 <div class="flex items-center space-x-3">
                     <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 text-white flex items-center justify-center text-sm shadow-md">
                         <i class="fa-solid fa-chart-line"></i>
@@ -158,22 +173,22 @@
             </div>
         </div>
 
-        <!-- DAFTAR DONATUR -->
-        <div class="bg-slate-900/90 backdrop-blur-2xl rounded-[2.5rem] p-6 md:p-8 shadow-2xl border border-slate-700/60 text-slate-100">
-            <div class="flex items-center space-x-3 mb-4">
+        <!-- KARTU DAFTAR DONATUR -->
+        <div class="bg-slate-900/95 backdrop-blur-2xl rounded-[2.5rem] p-6 md:p-8 shadow-2xl border border-slate-700/80 text-slate-100">
+            <div class="flex items-center space-x-3 mb-5 pb-3 border-b border-slate-800">
                 <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center text-sm shadow-md">
                     <i class="fa-solid fa-list-check"></i>
                 </div>
                 <h3 class="font-extrabold text-white text-base">Daftar Donatur Terverifikasi</h3>
             </div>
-            <div id="listDonaturPublik" class="space-y-3 divide-y divide-slate-800"></div>
+            <div id="listDonaturPublik" class="space-y-3 divide-y divide-slate-800/80"></div>
         </div>
     </main>
 
     <!-- MODAL PEMBAYARAN -->
     <div id="modalBayar" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-700 rounded-[2.5rem] p-6 md:p-8 max-w-md w-full shadow-2xl space-y-4 fade-in max-h-[90vh] overflow-y-auto text-slate-100">
-            <div class="text-center">
+            <div class="text-center pb-2 border-b border-slate-800">
                 <span class="bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-extrabold px-4 py-1.5 rounded-full shadow-sm" id="labelNominalModal">Rp 0</span>
                 <h3 class="text-xl font-extrabold text-white mt-3">Pilih Metode Pembayaran</h3>
                 <p class="text-xs text-slate-400 mt-0.5">Silakan pilih salah satu metode di bawah ini</p>
@@ -300,7 +315,7 @@
                 <button onclick="resetSemuaData()" class="text-red-400 text-xs font-bold hover:underline flex items-center gap-1">
                     <i class="fa-solid fa-trash"></i> Reset Semua Data
                 </button>
-                <span class="text-[11px] text-slate-500">Portal Infak Pro v4.0</span>
+                <span class="text-[11px] text-slate-500">Portal Infak Pro v4.3</span>
             </div>
         </div>
     </div>
@@ -312,7 +327,6 @@
 
     <!-- SCRIPT -->
     <script>
-        // KUMPULAN HADIS MOTIVASI BERGANTI-GANTI
         const daftarHadis = [
             { teks: "“Tidaklah harta berkurang karena sedekah. Dan hamba yang pemaaf, Allah pasti akan tambahkan kemuliaan baginya.”", sumber: "HR. Muslim" },
             { teks: "“Bentengilah hartamu dengan zakat, obatilah orang-orang sakit di antara kalian dengan sedekah, dan sambutlah gelombang cobaan dengan doa.”", sumber: "HR. Thabrani" },
@@ -332,7 +346,6 @@
                 container.style.opacity = 1;
             }, 500);
         }
-        // Ganti hadis otomatis setiap 6 detik
         setInterval(gantiHadis, 6000);
 
         let nominalTerpilih = 0;
@@ -349,23 +362,37 @@
 
         function resetTombolNominal() {
             document.querySelectorAll('.btn-nom').forEach(btn => {
-                btn.classList.remove('border-emerald-500', 'bg-gradient-to-r', 'from-emerald-600', 'to-teal-600', 'text-white', 'shadow-md');
-                if(!btn.classList.contains('border-dashed')) btn.classList.add('border-slate-700', 'text-slate-200', 'bg-slate-800/60');
+                btn.classList.remove('border-emerald-500', 'bg-gradient-to-r', 'from-emerald-600', 'to-teal-600', 'shadow-md');
+                if(btn.querySelector('.fa-pen-to-square')) {
+                    btn.classList.add('border-emerald-500/50', 'bg-emerald-950/20');
+                    btn.querySelectorAll('span')[0].className = "text-[10px] text-emerald-400 font-semibold uppercase tracking-wider mb-1";
+                    btn.querySelectorAll('span')[1].className = "text-sm md:text-base font-extrabold text-emerald-300";
+                } else {
+                    btn.classList.add('border-slate-700/80', 'bg-slate-800/80');
+                    btn.querySelectorAll('span')[0].className = "text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1 group-hover:text-emerald-400 transition";
+                    btn.querySelectorAll('span')[1].className = "text-sm md:text-base font-extrabold text-slate-200";
+                }
             });
         }
 
         function pilihNominal(nilai, el) {
             resetTombolNominal();
-            el.classList.remove('border-slate-700', 'text-slate-200', 'bg-slate-800/60');
-            el.classList.add('border-emerald-500', 'bg-gradient-to-r', 'from-emerald-600', 'to-teal-600', 'text-white', 'shadow-md');
+            el.classList.remove('border-slate-700/80', 'bg-slate-800/80');
+            el.classList.add('border-emerald-500', 'bg-gradient-to-r', 'from-emerald-600', 'to-teal-600', 'shadow-md');
+            el.querySelectorAll('span')[0].className = "text-[10px] text-emerald-100 font-semibold uppercase tracking-wider mb-1";
+            el.querySelectorAll('span')[1].className = "text-sm md:text-base font-extrabold text-white";
+            
             nominalTerpilih = nilai;
             document.getElementById('boxCustom').classList.add('hidden');
         }
 
         function pilihCustom(el) {
             resetTombolNominal();
-            el.classList.remove('border-dashed', 'border-emerald-500/50', 'text-emerald-400', 'bg-emerald-950/20');
-            el.classList.add('border-emerald-500', 'bg-gradient-to-r', 'from-emerald-600', 'to-teal-600', 'text-white', 'shadow-md');
+            el.classList.remove('border-emerald-500/50', 'bg-emerald-950/20');
+            el.classList.add('border-emerald-500', 'bg-gradient-to-r', 'from-emerald-600', 'to-teal-600', 'shadow-md');
+            el.querySelectorAll('span')[0].className = "text-[10px] text-emerald-100 font-semibold uppercase tracking-wider mb-1";
+            el.querySelectorAll('span')[1].className = "text-sm md:text-base font-extrabold text-white";
+            
             document.getElementById('boxCustom').classList.remove('hidden');
             document.getElementById('inputCustom').focus();
             nominalTerpilih = 0;
