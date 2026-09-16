@@ -23,64 +23,64 @@
         .hadis-fade { transition: opacity 0.6s ease-in-out; }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-amber-400 selection:text-slate-950">
 
-    <!-- HEADER / HERO SECTION -->
-    <header class="bg-gradient-to-tr from-emerald-950 via-teal-950 to-slate-900 text-white pt-10 pb-24 px-4 rounded-b-[4rem] shadow-2xl relative overflow-hidden border-b border-emerald-500/20">
-        <div class="absolute -top-32 -right-32 w-96 h-96 bg-gradient-to-br from-emerald-500/20 to-teal-500/0 rounded-full blur-3xl animate-pulse-glow pointer-events-none"></div>
-        <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-gradient-to-tr from-cyan-500/20 to-emerald-500/0 rounded-full blur-3xl animate-pulse-glow pointer-events-none" style="animation-delay: 3s;"></div>
+    <!-- HEADER / HERO SECTION (GRADASI KUNING EMAS & HIJAU ZAMRUD) -->
+    <header class="bg-gradient-to-tr from-emerald-950 via-teal-950 to-amber-950 text-white pt-10 pb-24 px-4 rounded-b-[4rem] shadow-2xl relative overflow-hidden border-b border-amber-500/20">
+        <div class="absolute -top-32 -right-32 w-96 h-96 bg-gradient-to-br from-emerald-500/20 to-amber-500/10 rounded-full blur-3xl animate-pulse-glow pointer-events-none"></div>
+        <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-gradient-to-tr from-amber-500/20 to-emerald-500/0 rounded-full blur-3xl animate-pulse-glow pointer-events-none" style="animation-delay: 3s;"></div>
 
         <div class="max-w-xl mx-auto flex justify-between items-center mb-6 relative z-10">
             <div class="flex items-center space-x-3.5">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/30 to-teal-500/10 backdrop-blur-md flex items-center justify-center border border-emerald-500/30 shadow-inner animate-float">
-                    <i class="fa-solid fa-mosque text-emerald-400 text-xl"></i>
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400/30 to-emerald-500/20 backdrop-blur-md flex items-center justify-center border border-amber-400/30 shadow-inner animate-float">
+                    <i class="fa-solid fa-mosque text-amber-300 text-xl"></i>
                 </div>
                 <div>
-                    <span class="text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-0.5 rounded-full font-extrabold uppercase tracking-widest">Official Portal</span>
+                    <span class="text-[10px] bg-gradient-to-r from-amber-400 to-emerald-500 text-slate-950 px-3 py-0.5 rounded-full font-extrabold uppercase tracking-widest shadow-sm">Official Portal</span>
                     <h1 class="text-xl font-extrabold mt-1 tracking-tight text-white">Infak & Sedekah</h1>
                 </div>
             </div>
-            <button onclick="openAdminLogin()" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-xs px-4 py-2.5 rounded-2xl border border-white/20 transition-all duration-300 flex items-center gap-2 font-semibold shadow-sm hover:scale-105">
+            <button onclick="openAdminLogin()" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-xs px-4 py-2.5 rounded-2xl border border-amber-400/30 transition-all duration-300 flex items-center gap-2 font-semibold shadow-sm hover:scale-105 text-amber-200">
                 <i class="fa-solid fa-lock text-amber-400"></i> Admin
             </button>
         </div>
 
         <!-- KARTU MOTIVASI HADIS -->
         <div class="max-w-xl mx-auto mb-8 px-4 text-center relative z-10">
-            <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-700/80 p-6 rounded-3xl shadow-2xl relative overflow-hidden">
-                <div class="absolute top-2 left-4 text-emerald-500/20 text-4xl font-serif">“</div>
+            <div class="bg-slate-900/70 backdrop-blur-xl border border-amber-500/20 p-6 rounded-3xl shadow-2xl relative overflow-hidden">
+                <div class="absolute top-2 left-4 text-amber-400/20 text-4xl font-serif">“</div>
                 <div id="containerHadis" class="hadis-fade opacity-100 space-y-2">
-                    <p id="teksHadis" class="text-sm md:text-base font-bold text-emerald-200 leading-relaxed italic">
+                    <p id="teksHadis" class="text-sm md:text-base font-bold text-amber-200 leading-relaxed italic">
                         "Tidaklah harta berkurang karena sedekah."
                     </p>
-                    <span id="sumberHadis" class="block text-[11px] font-semibold text-teal-300 tracking-wider uppercase">
+                    <span id="sumberHadis" class="block text-[11px] font-semibold text-emerald-300 tracking-wider uppercase">
                         — (HR. Muslim)
                     </span>
                 </div>
-                <div class="absolute bottom-1 right-4 text-emerald-500/20 text-4xl font-serif">”</div>
+                <div class="absolute bottom-1 right-4 text-amber-400/20 text-4xl font-serif">”</div>
             </div>
         </div>
 
-        <!-- KARTU STATISTIK ATAS (RAPI & SIMETRIS) -->
-        <div class="max-w-xl mx-auto grid grid-cols-2 gap-4 relative z-10">
-            <div class="bg-slate-900/70 backdrop-blur-xl p-5 rounded-3xl border border-slate-700/80 shadow-xl transition-all duration-300 hover:border-emerald-500/50 flex flex-col justify-between">
-                <div class="flex items-center space-x-2.5 mb-2">
-                    <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs border border-emerald-500/30">
+        <!-- KARTU STATISTIK ATAS (KUNING EMAS & HIJAU) -->
+        <div class="max-w-xl mx-auto grid grid-cols-2 gap-4 relative z-10 px-4">
+            <div class="bg-gradient-to-br from-slate-900/90 to-emerald-950/80 backdrop-blur-xl p-5 rounded-3xl border border-emerald-500/30 shadow-xl flex flex-col justify-between min-h-[110px]">
+                <div class="flex items-center space-x-2">
+                    <div class="w-7 h-7 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs border border-emerald-500/30 shrink-0">
                         <i class="fa-solid fa-wallet"></i>
                     </div>
-                    <p class="text-xs text-slate-300 font-semibold">Total Terkumpul</p>
+                    <p class="text-xs text-slate-300 font-semibold truncate">Total Terkumpul</p>
                 </div>
-                <h2 id="totalDanaPublik" class="text-xl md:text-2xl font-extrabold tracking-tight text-white mt-1">Rp 0</h2>
+                <h2 id="totalDanaPublik" class="text-lg md:text-xl font-extrabold tracking-tight text-emerald-300 truncate mt-2">Rp 0</h2>
             </div>
             
-            <div class="bg-slate-900/70 backdrop-blur-xl p-5 rounded-3xl border border-slate-700/80 shadow-xl transition-all duration-300 hover:border-cyan-500/50 flex flex-col justify-between">
-                <div class="flex items-center space-x-2.5 mb-2">
-                    <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xs border border-cyan-500/30">
+            <div class="bg-gradient-to-br from-slate-900/90 to-amber-950/80 backdrop-blur-xl p-5 rounded-3xl border border-amber-500/30 shadow-xl flex flex-col justify-between min-h-[110px]">
+                <div class="flex items-center space-x-2">
+                    <div class="w-7 h-7 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs border border-amber-500/30 shrink-0">
                         <i class="fa-solid fa-users"></i>
                     </div>
-                    <p class="text-xs text-slate-300 font-semibold">Donatur Dermawan</p>
+                    <p class="text-xs text-slate-300 font-semibold truncate">Donatur Dermawan</p>
                 </div>
-                <h2 id="totalDonaturPublik" class="text-xl md:text-2xl font-extrabold tracking-tight text-white mt-1">0 Orang</h2>
+                <h2 id="totalDonaturPublik" class="text-lg md:text-xl font-extrabold tracking-tight text-amber-300 truncate mt-2">0 Orang</h2>
             </div>
         </div>
     </header>
@@ -91,7 +91,7 @@
         <!-- KARTU FORMULIR INFAK -->
         <div class="bg-slate-900/95 backdrop-blur-2xl rounded-[2.5rem] p-6 md:p-8 shadow-2xl border border-slate-700/80 text-slate-100">
             <div class="flex items-center space-x-3.5 mb-6 pb-4 border-b border-slate-800">
-                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shadow-lg shadow-emerald-500/20">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-400 to-emerald-600 text-slate-950 flex items-center justify-center shadow-lg shadow-amber-500/20 shrink-0 font-bold">
                     <i class="fa-solid fa-hand-holding-heart text-lg"></i>
                 </div>
                 <div>
@@ -104,33 +104,33 @@
                 <div>
                     <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-3">Pilihan Nominal Infak</label>
                     
-                    <!-- KARTU NOMINAL GRID 4 KOTAK YANG SANGAT RAPI -->
+                    <!-- KARTU NOMINAL GRID 4 KOTAK -->
                     <div class="grid grid-cols-2 gap-3.5 mb-3">
-                        <button type="button" onclick="pilihNominal(100000, this)" class="btn-nom border-2 border-slate-700/80 bg-slate-800/80 rounded-2xl p-4 flex flex-col items-center justify-center text-center hover:border-emerald-500 hover:bg-emerald-950/30 transition-all duration-300 group shadow-sm">
-                            <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1 group-hover:text-emerald-400 transition">Pilihan 1</span>
+                        <button type="button" onclick="pilihNominal(100000, this)" class="btn-nom border-2 border-slate-700/80 bg-slate-800/80 rounded-2xl p-4 flex flex-col items-center justify-center text-center hover:border-amber-400 hover:bg-amber-950/20 transition-all duration-300 group shadow-sm">
+                            <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1 group-hover:text-amber-400 transition">Pilihan 1</span>
                             <span class="text-sm md:text-base font-extrabold text-slate-200">Rp 100.000</span>
                         </button>
                         
-                        <button type="button" onclick="pilihNominal(500000, this)" class="btn-nom border-2 border-slate-700/80 bg-slate-800/80 rounded-2xl p-4 flex flex-col items-center justify-center text-center hover:border-emerald-500 hover:bg-emerald-950/30 transition-all duration-300 group shadow-sm">
-                            <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1 group-hover:text-emerald-400 transition">Pilihan 2</span>
+                        <button type="button" onclick="pilihNominal(500000, this)" class="btn-nom border-2 border-slate-700/80 bg-slate-800/80 rounded-2xl p-4 flex flex-col items-center justify-center text-center hover:border-amber-400 hover:bg-amber-950/20 transition-all duration-300 group shadow-sm">
+                            <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1 group-hover:text-amber-400 transition">Pilihan 2</span>
                             <span class="text-sm md:text-base font-extrabold text-slate-200">Rp 500.000</span>
                         </button>
                         
-                        <button type="button" onclick="pilihNominal(1000000, this)" class="btn-nom border-2 border-slate-700/80 bg-slate-800/80 rounded-2xl p-4 flex flex-col items-center justify-center text-center hover:border-emerald-500 hover:bg-emerald-950/30 transition-all duration-300 group shadow-sm">
-                            <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1 group-hover:text-emerald-400 transition">Pilihan 3</span>
+                        <button type="button" onclick="pilihNominal(1000000, this)" class="btn-nom border-2 border-slate-700/80 bg-slate-800/80 rounded-2xl p-4 flex flex-col items-center justify-center text-center hover:border-amber-400 hover:bg-amber-950/20 transition-all duration-300 group shadow-sm">
+                            <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1 group-hover:text-amber-400 transition">Pilihan 3</span>
                             <span class="text-sm md:text-base font-extrabold text-slate-200">Rp 1.000.000</span>
                         </button>
                         
-                        <button type="button" onclick="pilihCustom(this)" class="btn-nom border-2 border-dashed border-emerald-500/50 bg-emerald-950/20 rounded-2xl p-4 flex flex-col items-center justify-center text-center hover:bg-emerald-900/30 transition-all duration-300 group shadow-sm">
-                            <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider mb-1">Fleksibel</span>
-                            <span class="text-sm md:text-base font-extrabold text-emerald-300"><i class="fa-solid fa-pen-to-square mr-1 text-xs"></i> Nominal Lain</span>
+                        <button type="button" onclick="pilihCustom(this)" class="btn-nom border-2 border-dashed border-amber-400/50 bg-amber-950/20 rounded-2xl p-4 flex flex-col items-center justify-center text-center hover:bg-amber-900/30 transition-all duration-300 group shadow-sm">
+                            <span class="text-[10px] text-amber-400 font-semibold uppercase tracking-wider mb-1">Fleksibel</span>
+                            <span class="text-sm md:text-base font-extrabold text-amber-300"><i class="fa-solid fa-pen-to-square mr-1 text-xs"></i> Nominal Lain</span>
                         </button>
                     </div>
                     
                     <div id="boxCustom" class="hidden mt-3 fade-in">
                         <div class="relative">
                             <span class="absolute inset-y-0 left-0 pl-4 flex items-center font-bold text-slate-400 text-sm">Rp</span>
-                            <input type="number" id="inputCustom" placeholder="Contoh: 75000" class="w-full pl-11 pr-4 py-3.5 border border-slate-700 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-800 text-white transition-all">
+                            <input type="number" id="inputCustom" placeholder="Contoh: 75000" class="w-full pl-11 pr-4 py-3.5 border border-slate-700 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-amber-400 bg-slate-800 text-white transition-all">
                         </div>
                     </div>
                 </div>
@@ -138,19 +138,20 @@
                 <div class="space-y-4 pt-2 border-t border-slate-800">
                     <div>
                         <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">Nama / Hamba Allah</label>
-                        <input type="text" id="namaDonatur" required placeholder="Nama Anda" class="w-full px-4 py-3.5 border border-slate-700 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-800 text-white transition-all">
+                        <input type="text" id="namaDonatur" required placeholder="Nama Anda" class="w-full px-4 py-3.5 border border-slate-700 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-amber-400 bg-slate-800 text-white transition-all">
                     </div>
                     <div>
                         <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">No. WhatsApp / Kontak</label>
-                        <input type="text" id="kontakDonatur" required placeholder="08xxxxxxxxxx" class="w-full px-4 py-3.5 border border-slate-700 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-800 text-white transition-all">
+                        <input type="text" id="kontakDonatur" required placeholder="08xxxxxxxxxx" class="w-full px-4 py-3.5 border border-slate-700 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-amber-400 bg-slate-800 text-white transition-all">
                     </div>
                     <div>
                         <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-1.5">Doa / Catatan (Opsional)</label>
-                        <textarea id="catatanDonatur" rows="2" placeholder="Tulis doa atau harapan terbaik..." class="w-full px-4 py-3.5 border border-slate-700 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-800 text-white transition-all resize-none"></textarea>
+                        <textarea id="catatanDonatur" rows="2" placeholder="Tulis doa atau harapan terbaik..." class="w-full px-4 py-3.5 border border-slate-700 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-amber-400 bg-slate-800 text-white transition-all resize-none"></textarea>
                     </div>
                 </div>
 
-                <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white font-extrabold py-4 rounded-2xl shadow-xl shadow-emerald-600/30 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center space-x-2">
+                <!-- TOMBOL UTAMA: GRADASI KUNING KE EMASAN & HIJAU -->
+                <button type="submit" class="w-full bg-gradient-to-r from-amber-500 via-emerald-600 to-teal-600 hover:from-amber-600 hover:to-teal-700 text-slate-950 hover:text-white font-extrabold py-4 rounded-2xl shadow-xl shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center space-x-2">
                     <span>Lanjut ke Pembayaran</span>
                     <i class="fa-solid fa-arrow-right-long text-xs animate-pulse"></i>
                 </button>
@@ -161,12 +162,12 @@
         <div class="bg-slate-900/95 backdrop-blur-2xl rounded-[2.5rem] p-6 md:p-8 shadow-2xl border border-slate-700/80 text-slate-100">
             <div class="flex items-center justify-between mb-5 pb-3 border-b border-slate-800">
                 <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 text-white flex items-center justify-center text-sm shadow-md">
+                    <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-amber-400 to-emerald-600 text-slate-950 flex items-center justify-center text-sm shadow-md shrink-0 font-bold">
                         <i class="fa-solid fa-chart-line"></i>
                     </div>
                     <h3 class="font-extrabold text-white text-base">Grafik Tren Infak Harian</h3>
                 </div>
-                <span class="text-[10px] font-bold bg-emerald-950 text-emerald-400 border border-emerald-800 px-3 py-1 rounded-full shadow-sm">Realtime</span>
+                <span class="text-[10px] font-bold bg-amber-950 text-amber-400 border border-amber-800 px-3 py-1 rounded-full shadow-sm">Realtime</span>
             </div>
             <div class="relative h-48 w-full">
                 <canvas id="grafikPublik"></canvas>
@@ -176,7 +177,7 @@
         <!-- KARTU DAFTAR DONATUR -->
         <div class="bg-slate-900/95 backdrop-blur-2xl rounded-[2.5rem] p-6 md:p-8 shadow-2xl border border-slate-700/80 text-slate-100">
             <div class="flex items-center space-x-3 mb-5 pb-3 border-b border-slate-800">
-                <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center text-sm shadow-md">
+                <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center text-sm shadow-md shrink-0">
                     <i class="fa-solid fa-list-check"></i>
                 </div>
                 <h3 class="font-extrabold text-white text-base">Daftar Donatur Terverifikasi</h3>
@@ -189,14 +190,14 @@
     <div id="modalBayar" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-700 rounded-[2.5rem] p-6 md:p-8 max-w-md w-full shadow-2xl space-y-4 fade-in max-h-[90vh] overflow-y-auto text-slate-100">
             <div class="text-center pb-2 border-b border-slate-800">
-                <span class="bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-extrabold px-4 py-1.5 rounded-full shadow-sm" id="labelNominalModal">Rp 0</span>
+                <span class="bg-amber-950 text-amber-400 border border-amber-800 text-xs font-extrabold px-4 py-1.5 rounded-full shadow-sm" id="labelNominalModal">Rp 0</span>
                 <h3 class="text-xl font-extrabold text-white mt-3">Pilih Metode Pembayaran</h3>
                 <p class="text-xs text-slate-400 mt-0.5">Silakan pilih salah satu metode di bawah ini</p>
             </div>
 
             <!-- 1. QRIS -->
-            <div class="border-2 border-emerald-500/80 bg-slate-800/80 p-4 rounded-3xl text-center space-y-2.5 shadow-sm">
-                <span class="text-xs font-bold text-emerald-400 block flex items-center justify-center gap-1.5">
+            <div class="border-2 border-amber-400/80 bg-slate-800/80 p-4 rounded-3xl text-center space-y-2.5 shadow-sm">
+                <span class="text-xs font-bold text-amber-400 block flex items-center justify-center gap-1.5">
                     <i class="fa-solid fa-qrcode"></i> QRIS (Semua E-Wallet & Bank)
                 </span>
                 <div class="w-36 h-36 mx-auto bg-white border border-slate-700 rounded-2xl flex items-center justify-center p-2 shadow-inner">
@@ -210,7 +211,7 @@
 
             <!-- 2. VIRTUAL ACCOUNT -->
             <div class="border border-slate-700 bg-slate-800/60 p-4 rounded-3xl text-xs space-y-2.5 shadow-sm">
-                <span class="font-extrabold text-teal-400 block flex items-center gap-1.5">
+                <span class="font-extrabold text-amber-400 block flex items-center gap-1.5">
                     <i class="fa-solid fa-credit-card"></i> Virtual Account (VA):
                 </span>
                 <div class="flex justify-between items-center text-slate-300 border-b border-slate-700 pb-1.5">
@@ -229,7 +230,7 @@
 
             <!-- 3. TRANSFER MANUAL -->
             <div class="border border-slate-700 bg-slate-800/60 p-4 rounded-3xl text-xs space-y-2 shadow-sm">
-                <span class="font-extrabold text-cyan-400 block flex items-center gap-1.5">
+                <span class="font-extrabold text-emerald-400 block flex items-center gap-1.5">
                     <i class="fa-solid fa-building-columns"></i> Transfer Bank / E-Wallet Manual:
                 </span>
                 <div class="flex justify-between text-slate-300 border-b border-slate-700 pb-1.5"><span>Bank BSI:</span> <strong class="text-white font-bold">7123-4567-89</strong></div>
@@ -238,7 +239,7 @@
             </div>
 
             <div class="space-y-2.5 pt-1">
-                <a id="btnWaKonfirm" href="#" target="_blank" class="block w-full text-center bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-extrabold py-3.5 rounded-2xl transition-all shadow-lg shadow-emerald-600/30 text-sm flex items-center justify-center space-x-2">
+                <a id="btnWaKonfirm" href="#" target="_blank" class="block w-full text-center bg-gradient-to-r from-amber-500 to-emerald-600 hover:from-amber-600 hover:to-emerald-700 text-slate-950 hover:text-white font-extrabold py-3.5 rounded-2xl transition-all shadow-lg shadow-amber-500/20 text-sm flex items-center justify-center space-x-2">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
                     <span>Konfirmasi Bukti via WhatsApp</span>
                 </a>
@@ -253,15 +254,15 @@
     <div id="modalAdminLogin" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-700 rounded-[2.5rem] p-6 md:p-8 max-w-xs w-full shadow-2xl space-y-4 fade-in text-slate-100">
             <div class="text-center">
-                <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-2 text-lg shadow-md">
+                <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-emerald-600 text-slate-950 rounded-2xl flex items-center justify-center mx-auto mb-2 text-lg shadow-md font-bold">
                     <i class="fa-solid fa-lock"></i>
                 </div>
                 <h3 class="text-lg font-extrabold text-white">Login Administrator</h3>
                 <p class="text-xs text-slate-400 mt-0.5">Masukkan sandi khusus pengelola</p>
             </div>
-            <input type="password" id="passwordAdmin" placeholder="Password (admin123)" class="w-full px-4 py-3.5 border border-slate-700 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-800 text-white">
+            <input type="password" id="passwordAdmin" placeholder="Password (admin123)" class="w-full px-4 py-3.5 border border-slate-700 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-amber-400 bg-slate-800 text-white">
             <div class="flex space-x-2 pt-1">
-                <button onclick="cekLoginAdmin()" class="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 text-white font-bold py-3 rounded-2xl text-sm shadow-md transition">Masuk</button>
+                <button onclick="cekLoginAdmin()" class="flex-1 bg-gradient-to-r from-amber-500 to-emerald-600 hover:from-amber-600 text-slate-950 hover:text-white font-bold py-3 rounded-2xl text-sm shadow-md transition">Masuk</button>
                 <button onclick="tutupAdminLogin()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold py-3 rounded-2xl text-sm transition">Batal</button>
             </div>
         </div>
@@ -272,7 +273,7 @@
         <div class="max-w-3xl mx-auto bg-slate-900 border border-slate-700 rounded-[2.5rem] p-6 md:p-8 shadow-2xl space-y-6 fade-in text-slate-100">
             <div class="flex justify-between items-center border-b border-slate-800 pb-4">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 text-white rounded-2xl flex items-center justify-center font-bold shadow-md">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-emerald-600 text-slate-950 rounded-2xl flex items-center justify-center font-bold shadow-md">
                         <i class="fa-solid fa-gauge-high"></i>
                     </div>
                     <div>
@@ -315,7 +316,7 @@
                 <button onclick="resetSemuaData()" class="text-red-400 text-xs font-bold hover:underline flex items-center gap-1">
                     <i class="fa-solid fa-trash"></i> Reset Semua Data
                 </button>
-                <span class="text-[11px] text-slate-500">Portal Infak Pro v4.3</span>
+                <span class="text-[11px] text-slate-500">Portal Infak Pro v4.5</span>
             </div>
         </div>
     </div>
@@ -362,15 +363,15 @@
 
         function resetTombolNominal() {
             document.querySelectorAll('.btn-nom').forEach(btn => {
-                btn.classList.remove('border-emerald-500', 'bg-gradient-to-r', 'from-emerald-600', 'to-teal-600', 'shadow-md');
+                btn.classList.remove('border-amber-400', 'bg-gradient-to-r', 'from-amber-500', 'to-emerald-600', 'text-slate-950', 'shadow-md');
                 if(btn.querySelector('.fa-pen-to-square')) {
-                    btn.classList.add('border-emerald-500/50', 'bg-emerald-950/20');
-                    btn.querySelectorAll('span')[0].className = "text-[10px] text-emerald-400 font-semibold uppercase tracking-wider mb-1";
-                    btn.querySelectorAll('span')[1].className = "text-sm md:text-base font-extrabold text-emerald-300";
+                    btn.classList.add('border-amber-400/50', 'bg-amber-950/20');
+                    btn.querySelectorAll('span')[0].className = "text-[10px] text-amber-400 font-semibold uppercase tracking-wider mb-1";
+                    btn.querySelectorAll('span')[1].className = "text-sm md:text-base font-extrabold text-amber-300";
                 } else {
                     btn.classList.add('border-slate-700/80', 'bg-slate-800/80');
-                    btn.querySelectorAll('span')[0].className = "text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1 group-hover:text-emerald-400 transition";
-                    btn.querySelectorAll('span')[1].className = "text-sm md:text-base font-extrabold text-slate-200";
+                    btn.querySelectorAll('span')[0].className = "text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1 group-hover:text-amber-400 transition";
+                    btn.querySelectorAll('span')[1].className = "text-[13px] md:text-sm font-extrabold text-slate-200";
                 }
             });
         }
@@ -378,9 +379,9 @@
         function pilihNominal(nilai, el) {
             resetTombolNominal();
             el.classList.remove('border-slate-700/80', 'bg-slate-800/80');
-            el.classList.add('border-emerald-500', 'bg-gradient-to-r', 'from-emerald-600', 'to-teal-600', 'shadow-md');
-            el.querySelectorAll('span')[0].className = "text-[10px] text-emerald-100 font-semibold uppercase tracking-wider mb-1";
-            el.querySelectorAll('span')[1].className = "text-sm md:text-base font-extrabold text-white";
+            el.classList.add('border-amber-400', 'bg-gradient-to-r', 'from-amber-400', 'to-emerald-500', 'text-slate-950', 'shadow-md');
+            el.querySelectorAll('span')[0].className = "text-[10px] text-slate-950 font-bold uppercase tracking-wider mb-1";
+            el.querySelectorAll('span')[1].className = "text-[13px] md:text-sm font-extrabold text-slate-950";
             
             nominalTerpilih = nilai;
             document.getElementById('boxCustom').classList.add('hidden');
@@ -388,10 +389,10 @@
 
         function pilihCustom(el) {
             resetTombolNominal();
-            el.classList.remove('border-emerald-500/50', 'bg-emerald-950/20');
-            el.classList.add('border-emerald-500', 'bg-gradient-to-r', 'from-emerald-600', 'to-teal-600', 'shadow-md');
-            el.querySelectorAll('span')[0].className = "text-[10px] text-emerald-100 font-semibold uppercase tracking-wider mb-1";
-            el.querySelectorAll('span')[1].className = "text-sm md:text-base font-extrabold text-white";
+            el.classList.remove('border-amber-400/50', 'bg-amber-950/20');
+            el.classList.add('border-amber-400', 'bg-gradient-to-r', 'from-amber-400', 'to-emerald-500', 'text-slate-950', 'shadow-md');
+            el.querySelectorAll('span')[0].className = "text-[10px] text-slate-950 font-bold uppercase tracking-wider mb-1";
+            el.querySelectorAll('span')[1].className = "text-[13px] md:text-sm font-extrabold text-slate-950";
             
             document.getElementById('boxCustom').classList.remove('hidden');
             document.getElementById('inputCustom').focus();
@@ -447,7 +448,7 @@
                             <strong class="text-white text-sm font-bold">${item.nama}</strong><br>
                             <span class="text-slate-400 text-[11px]">${item.tanggal} • <span class="italic text-slate-300">${item.catatan || 'Infak Umum'}</span></span>
                         </div>
-                        <span class="font-extrabold text-emerald-400 text-sm">Rp ${item.nominal.toLocaleString('id-ID')}</span>
+                        <span class="font-extrabold text-amber-400 text-sm">Rp ${item.nominal.toLocaleString('id-ID')}</span>
                     </div>
                 `;
             });
@@ -467,7 +468,7 @@
                 type: 'line',
                 data: {
                     labels: labels.length ? labels : ['-', 'Hari Ini'],
-                    datasets: [{ data: values.length ? values : [0,0], borderColor: '#34d399', backgroundColor: 'rgba(52, 211, 153, 0.1)', borderWidth: 3, fill: true, tension: 0.4, pointBackgroundColor: '#34d399', pointRadius: 4 }]
+                    datasets: [{ data: values.length ? values : [0,0], borderColor: '#fbbf24', backgroundColor: 'rgba(251, 191, 36, 0.1)', borderWidth: 3, fill: true, tension: 0.4, pointBackgroundColor: '#fbbf24', pointRadius: 4 }]
                 },
                 options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } }, x: { grid: { display: false }, ticks: { color: '#94a3b8' } } } }
             });
@@ -502,7 +503,7 @@
                         <td class="p-3.5 font-bold text-slate-200">Rp ${item.nominal.toLocaleString('id-ID')}</td>
                         <td class="p-3.5">${badge}</td>
                         <td class="p-3.5 text-center space-x-1.5">
-                            ${item.status === 'Pending' ? `<button onclick="ubahStatus(${actualIndex}, 'Berhasil')" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 text-white px-3 py-1.5 rounded-xl text-[11px] font-bold shadow-sm">Validasi</button>` : ''}
+                            ${item.status === 'Pending' ? `<button onclick="ubahStatus(${actualIndex}, 'Berhasil')" class="bg-gradient-to-r from-amber-500 to-emerald-600 hover:from-amber-600 text-slate-950 hover:text-white px-3 py-1.5 rounded-xl text-[11px] font-bold shadow-sm transition">Validasi</button>` : ''}
                             <button onclick="hapusTransaksi(${actualIndex})" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-xl text-[11px] font-bold shadow-sm">Hapus</button>
                         </td>
                     </tr>
